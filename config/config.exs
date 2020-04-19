@@ -16,7 +16,7 @@ config :covid66live, Covid66liveWeb.Endpoint,
   secret_key_base: "qRT2sYOD+PimI5383EgVYLqPwDFBEQJ+hL7QIVrvmYP38YosScwFJEDHHnqiYXaf",
   render_errors: [view: Covid66liveWeb.ErrorView, accepts: ~w(html json)],
   pubsub: [name: Covid66live.PubSub, adapter: Phoenix.PubSub.PG2],
-  live_view: [signing_salt: "nhoLCZjbkynL5SGCt+wQFODhcIBkum1Y"]
+  live_view: [signing_salt: "SVPkfnytBmuJsctJR6llSMkPB/BugQWg"]
 
 # Configures Elixir's Logger
 config :logger, :console,

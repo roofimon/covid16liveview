@@ -7,7 +7,7 @@ defmodule Covid66liveWeb.Endpoint do
   @session_options [
     store: :cookie,
     key: "_covid66live_key",
-    signing_salt: "nhoLCZjbkynL5SGCt+wQFODhcIBkum1Y"
+    signing_salt: "SVPkfnytBmuJsctJR6llSMkPB/BugQWg"
   ]
 
   socket "/live", Phoenix.LiveView.Socket,
