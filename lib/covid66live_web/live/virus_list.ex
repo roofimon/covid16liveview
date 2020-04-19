@@ -4,7 +4,6 @@ defmodule Covid66liveWeb.VirusListLive do
     @topic "live"
     def mount(_params, _session, socket) do
         if connected?(socket), do: :timer.send_interval(100, self(), :tick)
-        viruses = Wiki.get_all_viruses
         {:ok, assign(socket, uuid: "", date: NaiveDateTime.local_now())}
     end
   

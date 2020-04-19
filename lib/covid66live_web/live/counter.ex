@@ -3,7 +3,6 @@ defmodule Covid66liveWeb.Counter do
     require Logger
     @topic "live"
     def mount(_params, _session, socket) do
-      Logger.debug "Mount"
       Covid66liveWeb.Endpoint.subscribe(@topic)
       {:ok, assign(socket, uuid: "")}
     end
@@ -13,7 +12,6 @@ defmodule Covid66liveWeb.Counter do
     end
 
     def render(assigns) do
-      Logger.debug "Render"
       ~L"""
       <div>
         <h2>The count is: <%= @uuid %></h2>
