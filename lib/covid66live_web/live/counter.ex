@@ -5,32 +5,18 @@ defmodule Covid66liveWeb.Counter do
     def mount(_params, _session, socket) do
       Logger.debug "Mount"
       Covid66liveWeb.Endpoint.subscribe(@topic)
-      {:ok, assign(socket, val: UUID.uuid1(), x: "x")}
-    end
-  
-    def handle_event("inc", _, socket) do
-      Covid66liveWeb.Endpoint.broadcast_from(self(), @topic, "inc", assign(socket, val: UUID.uuid1()))
-      # updated_socket = update(socket, :val,  &(&1 +1))
-      {:noreply, assign(socket, x: "y", val: UUID.uuid1())}
-    end
-  
-    def handle_event("dec", _, socket) do
-      {:noreply, socket}
+      {:ok, assign(socket, uuid: "")}
     end
   
     def handle_info(msg, socket) do
-      Logger.debug "Handle_info"
-      IO.inspect msg.payload.assigns.val
-      {:noreply, assign(socket, val: msg.payload.assigns.val)}
+      {:noreply, assign(socket, uuid: msg.payload.assigns.uuid)}
     end
 
     def render(assigns) do
       Logger.debug "Render"
       ~L"""
       <div>
-        <h2>The count is: <%= @val %><%= @x %></h2>
-        <button phx-click="dec">-</button>
-        <button phx-click="inc">+</button>
+        <h2>The count is: <%= @uuid %></h2>
       </div>
       """
     end
