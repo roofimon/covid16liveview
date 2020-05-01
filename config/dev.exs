@@ -3,9 +3,9 @@ use Mix.Config
 # Configure your database
 config :covid66live, Covid66live.Repo,
   username: "postgres",
-  password: "mysecretpassword",
+  password: "postgres",
   database: "covid66live_dev",
-  hostname: "localhost",
+  hostname: "database",
   show_sensitive_data_on_connection_error: true,
   pool_size: 10
 
