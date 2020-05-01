@@ -1,0 +1,21 @@
+version: "3.5"
+services:
+    database:
+        container_name: postgres_dev
+        image: "postgres"
+        ports:
+            - 5432:5432
+        env_file:
+            - database.env # configure postgres
+    web:
+        container_name: phoenix_dev
+        build:
+            context: .
+            dockerfile: Dockerfile
+        ports:
+            - 4000:4000
+        volumes:
+            - C:\Users\roofi\Workspace\Elixir\Phoenix\covid16liveview:/app
+        depends_on:
+            - database
+        command: sh -c "mix phx.server"
